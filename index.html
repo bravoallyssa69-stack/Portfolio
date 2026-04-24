@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visual Arts Portfolio</title>
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <a onclick="showSection('cover')">Cover</a>
+    <a onclick="showSection('toc')">Contents</a>
+    <a onclick="showSection('statement')">Artist Statement</a>
+    <a onclick="showSection('modules')">Modules</a>
+    <a onclick="showSection('process')">Process</a>
+</nav>
+
+<!-- COVER PAGE -->
+<section id="cover">
+    <h1>Visual Arts Portfolio</h1>
+    <h2>Allyssa Bravo</h2>
+    <p>GE ELEC 3</p>
+    <p>BSIT - Block 2-D</p>
+    <p>Email: bravoallyssa69@gmail.com</p>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+        <li>Artist Statement</li>
+        <li>Module Outputs</li>
+        <li>Process Documentation</li>
+    </ul>
+</section>
+
+<!-- ARTIST STATEMENT -->
+<section id="statement">
+    <h2>Artist Statement</h2>
+    <p>
+    This portfolio represents my journey in understanding visual arts as a powerful
+    form of communication. Throughout the course, I explored different techniques
+    such as collage, drawing, abstract composition, and digital design. Each module
+    allowed me to experiment with elements like color, balance, contrast, and form,
+    helping me express ideas more effectively.
+    </p>
+
+    <p>
+    I learned that visuals are not only about aesthetics but also about meaning and
+    message. From creating a digital collage to designing an infographic, I developed
+    both creativity and critical thinking skills. This experience improved my ability
+    to communicate visually and appreciate the role of design in everyday life.
+    </p>
+</section>
+
+
+<!-- MODULE OUTPUTS -->
+<section id="modules">
+    <h2>Module Outputs</h2>
+
+    <div class="gallery-container">
+        <button class="arrow" onclick="scrollGallery(-1)">❮</button>
+
+        <div class="gallery" id="gallery">
+
+            <div class="card">
+                <h3>Module 1</h3>
+                <img src="images/m1.jpg" class="portrait" onclick="openFocus(this.src)">
+                <p class="desc">Digital Visual World Collage</p>
+            </div>
+
+            <div class="card">
+                <h3>Module 2</h3>
+                <img src="images/m2.jpg" class="portrait" onclick="openFocus(this.src)">
+                <p class="desc">Observational Drawing (7 Elements)</p>
+            </div>
+
+            <div class="card">
+                <h3>Module 3</h3>
+                <img src="images/m3.jpg" class="portrait" onclick="openFocus(this.src)">
+                <p class="desc">Abstract Composition</p>
+            </div>
+
+            <div class="card">
+                <h3>Module 4</h3>
+                <img src="images/m4.jpg" class="landscape" onclick="openFocus(this.src)">
+                <p class="desc">Transformation Series</p>
+            </div>
+
+            <div class="card">
+                <h3>Module 5</h3>
+                <img src="images/m5.jpg" class="landscape" onclick="openFocus(this.src)">
+                <p class="desc">Filipino-Inspired Pattern Design</p>
+            </div>
+
+            <div class="card">
+                <h3>Module 6-7</h3>
+                <img src="images/m6.jpg" class="landscape" onclick="openFocus(this.src)">
+                <p class="desc">Drawing Artwork</p>
+            </div>
+
+            <div class="card">
+                <h3>Module 8</h3>
+                <img src="images/m8.jpg" class="portrait" onclick="openFocus(this.src)">
+                <p class="desc">Digital Poster</p>
+            </div>
+
+            <div class="card">
+                <h3>Module 9</h3>
+                <img src="images/m9.jpg" class="portrait" onclick="openFocus(this.src)">
+                <p class="desc">Photo Narrative Series</p>
+            </div>
+
+            <div class="card">
+                <h3>Module 10</h3>
+                <img src="images/m10.jpg" class="portrait" onclick="openFocus(this.src)">
+                <p class="desc">Infographic (IT Topic)</p>
+            </div>
+
+            <div class="card">
+                <h3>Module 11</h3>
+                <img src="images/m11.jpg" class="portrait" onclick="openFocus(this.src)">
+                <p class="desc">Meme Series Creation</p>
+            </div>
+
+        </div>
+
+        <button class="arrow" onclick="scrollGallery(1)">❯</button>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+    <h2>Process Documentation</h2>
+
+    <div class="process-box">
+        <h3>Module 1 Process</h3>
+        <img src="images/process1.jpg" onclick="openFocus(this.src)">
+    </div>
+
+    <div class="process-box">
+        <h3>Module 3 Process</h3>
+        <img src="images/process2.jpg" onclick="openFocus(this.src)">
+    </div>
+
+    <div class="process-box">
+        <h3>Module 10 Process</h3>
+        <img src="images/process3.jpg" onclick="openFocus(this.src)">
+    </div>
+</section>
+
+<!-- FOCUS VIEW -->
+<div id="focusView" class="focus-view">
+    <span class="focus-close" onclick="closeFocus()">&times;</span>
+    <img id="focusImg" class="focus-img">
+</div>
+
+<!-- SCRIPT -->
+<script>
+function showSection(id) {
+    document.querySelectorAll("section").forEach(s => s.style.display = "none");
+    document.getElementById(id).style.display = "block";
+}
+
+function scrollGallery(dir) {
+    document.getElementById("gallery")
+        .scrollBy({ left: dir * 400, behavior: "smooth" });
+}
+
+function openFocus(src) {
+    document.getElementById("focusView").style.display = "flex";
+    document.getElementById("focusImg").src = src;
+    document.body.classList.add("focus-active");
+}
+
+function closeFocus() {
+    document.getElementById("focusView").style.display = "none";
+    document.body.classList.remove("focus-active");
+}
+</script>
+
+</body>
+</html>
